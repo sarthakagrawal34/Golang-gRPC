@@ -23,5 +23,11 @@ func main() {
 	client := pb.NewGreetServiceClient(conn)
 
 	// Unary rpc
-	callSayHello(client)
+	// callSayHello(client)
+
+	// Server streaming rpc
+	names := &pb.NamesList{
+		Names: []string{"Sarthak", "Jack", "Jessy", "Raj", "Walt"},
+	}
+	callSayHelloServerStream(client, names)
 }
